@@ -7,11 +7,17 @@ function App() {
   function allNewDice() {
     const array = []
     for(let i = 0; i < 10; i++) {
-      array.push(Math.ceil(Math.random() * 6))
+      array.push({
+        key: i,
+        value: Math.ceil(Math.random() * 6),
+        isHeld: false
+      })
     }
     
     return array
   }
+  
+
 
   const [dice, setDice] = React.useState(allNewDice())
 
@@ -19,8 +25,10 @@ function App() {
     setDice(prevDice => allNewDice())
   }
 
-  const dieElements = dice.map(die => <Dice value={die}/>)
+
+  const dieElements = dice.map(die => <Dice key={die.key} value={die.value} styles={die.isHeld} />)
   
+  console.log(dice)
 
   return (
     <div className="gameContainer">
