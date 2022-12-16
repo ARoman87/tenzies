@@ -2,8 +2,14 @@ import React from "react"
 
 export default function Dice(props) {
     return (
-        <div className="dice" style={{backgroundColor: props.styles && "#59E391"}} onClick={props.handleClick}>
+        <div 
+            className="dice" 
+            style={{backgroundColor: props.styles && "#59E391"}} 
+            onClick={props.holdDice}
+        >
+
             {props.value}
+            
         </div>
     )
 }
